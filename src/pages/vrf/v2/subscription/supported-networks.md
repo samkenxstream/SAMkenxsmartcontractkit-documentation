@@ -1,6 +1,6 @@
 ---
 layout: ../../../../layouts/MainLayout.astro
-section: ethereum
+section: vrf
 date: Last Modified
 title: "Configuration"
 permalink: "docs/vrf/v2/subscription/supported-networks/"
@@ -130,7 +130,7 @@ Testnet LINK is available from https://faucets.chain.link/chapel
 ### Polygon (Matic) mainnet
 
 :::tip[Important]
-The LINK provided by the [Polygon (Matic) Bridge](https://wallet.polygon.technology/bridge) is not ERC-677 compatible, so cannot be used with Chainlink oracles. However, it can be [**converted to the official LINK token on Polygon (Matic) using Chainlink's PegSwap service**](https://pegswap.chain.link/)
+The LINK provided by the [Polygon (Matic) Bridge](https://wallet.polygon.technology/polygon/bridge) is not ERC-677 compatible, so cannot be used with Chainlink oracles. However, it can be [**converted to the official LINK token on Polygon (Matic) using Chainlink's PegSwap service**](https://pegswap.chain.link/)
 :::
 
 | Item                  | Value                                                                                                                                                                                                               |

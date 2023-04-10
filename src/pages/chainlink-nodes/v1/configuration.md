@@ -13,15 +13,15 @@ To reiterate: _If you have an environment variable set that is not listed here, 
 
 The environment variables listed here are explicitly supported and current as of Chainlink node v1.3.0.
 
-## Experimental TOML configuration
+### TOML Configuration
 
-Static configuration using TOML files was added in v1.11.0 as an alternative to the existing combination of environment variables and persisted database configurations. This configuration method is _experimental_. In the future, TOML configuration `v2.0.0` will become the only supported configuration method. Enable TOML configuration by specifying the `-config <filename>.toml` flag with the path to your TOML file. Alternatively, you can specify the raw TOML config in the [`CL_CONFIG` environment variable](/chainlink-nodes/v1/configuration#cl_config). See the [CONFIG.md](https://github.com/smartcontractkit/chainlink/blob/v1.12.0/docs/CONFIG.md) and [SECRETS.md](https://github.com/smartcontractkit/chainlink/blob/v1.12.0/docs/SECRETS.md) on GitHub to learn more.
+TOML configuration for Chainlink nodes is stable and recommended for mainnet deployments. TOML configuration will be the only supported configuration method starting with `v2.0.0`. Enable TOML configuration by specifying the `-config <filename>.toml` flag with the path to your TOML file. Alternatively, you can specify the raw TOML config in the [`CL_CONFIG` environment variable](/chainlink-nodes/v1/configuration#cl_config). See the [CONFIG.md](https://github.com/smartcontractkit/chainlink/blob/v1.13.0/docs/CONFIG.md) and [SECRETS.md](https://github.com/smartcontractkit/chainlink/blob/v1.13.0/docs/SECRETS.md) on GitHub to learn more.
 
 ## Changes to node configuration starting in v1.1.0 nodes
 
 As of Chainlink node v1.1.0 and up, the way nodes manage configuration is changing. Previously, environment variables exclusively handled all node configuration. Although this configuration method worked well in the past, it has its limitations. Notably, it doesn't mesh well with chain-specific configuration profiles.
 
-For this reason, Chainlink nodes are moving towards a model where you set variables using the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or GUI, and the configuration is saved in the database. We encourage you to become familiar with this model because it is likely that nodes will continue to move away from environment variable configuration in the future.
+For this reason, Chainlink nodes are moving towards a model where you set variables using the API, CLI, or GUI, and the configuration is saved in the database. We encourage you to become familiar with this model because it is likely that nodes will continue to move away from environment variable configuration in the future.
 
 As of v1.1.0, Chainlink nodes still support environment variables to configure node settings and chain-specific settings. If the environment variable is set, it overrides any chain-specific, job-specific, or database configuration setting. The log displays a warning to indicate when an override happens, so you know when variables lower in the hierarchy are being ignored.
 
@@ -47,13 +47,9 @@ The PostgreSQL URI to connect to your database. Chainlink nodes require Postgres
 
 ### CL_CONFIG
 
-:::caution[Experimental]
-Use TOML for configuration only on test networks.
-:::
-
 This environment variable is used to set static configuration using TOML format. Specify the raw TOML config in this environment variable. Unlike the `-config` flag, it does not accept a path to a TOML file.
 
-See the [CONFIG.md](https://github.com/smartcontractkit/chainlink/blob/v1.12.0/docs/CONFIG.md) and [SECRETS.md](https://github.com/smartcontractkit/chainlink/blob/v1.12.0/docs/SECRETS.md) on GitHub to learn more.
+See the [CONFIG.md](https://github.com/smartcontractkit/chainlink/blob/v1.13.0/docs/CONFIG.md) and [SECRETS.md](https://github.com/smartcontractkit/chainlink/blob/v1.13.0/docs/SECRETS.md) on GitHub to learn more.
 
 ### CHAIN_TYPE
 
@@ -543,7 +539,7 @@ Example `BRIDGE_CACHE_TTL=10s`, `BRIDGE_CACHE_TTL=1m`
 
 - Default: _none_
 
-`BRIDGE_RESPONSE_URL` defines the URL for bridges to send a response to. This _must_ be set when using async external adapters.
+`BRIDGE_RESPONSE_URL` defines the URL for bridges to send a response to.
 
 Usually this will be the same as the URL/IP and port you use to connect to the Chainlink UI, such as `https://my-chainlink-node.example.com:6688`.
 
@@ -561,7 +557,7 @@ Do not change this setting unless you know what you are doing.
 
 - Default: `"6688"`
 
-Port used for the Chainlink Node API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), and GUI.
+Port used for the Chainlink Node API, CLI, and GUI.
 
 ### SECURE_COOKIES
 
@@ -643,17 +639,17 @@ The location of the TLS private key file. Example: `/home/$USER/.chainlink/tls/s
 
 Previous Chainlink node versions supported only one chain. From v1.1.0 and up, Chainlink nodes support multiple EVM and non-EVM chains, so the way that chains and nodes are configured has changed.
 
-The preferred way of configuring Chainlink nodes as of v1.1.0 and up is to use the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or UI to set chain-specific configuration and create nodes.
+The preferred way of configuring Chainlink nodes as of v1.1.0 and up is to use the API, CLI, or UI to set chain-specific configuration and create nodes.
 
 The old way of specifying chains using environment variables is still supported, but discouraged. It works as follows:
 
 If you set any value for `ETH_URL`, the values of `ETH_CHAIN_ID`, `ETH_URL`, `ETH_HTTP_URL` and `ETH_SECONDARY_URLS` will be used to create and update chains and nodes representing these values in the database. If an existing chain or node is found, it will be overwritten. This mode is used mainly to ease the process of upgrading. On subsequent runs (once your old settings have been written to the database) it is recommended to unset `ETH_URL` and use the API commands exclusively to administer chains and nodes.
 
-In the future, support for the `ETH_URL` and associated environment variables might be removed, so it is recommended to use the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or GUI instead to setup chains and nodes.
+In the future, support for the `ETH_URL` and associated environment variables might be removed, so it is recommended to use the API, CLI, or GUI instead to setup chains and nodes.
 
 ### ETH_URL
 
-Setting this will enable "legacy eth ENV" mode, which is not compatible with multi-chain. It is better to configure settings using the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or GUI instead.
+Setting this will enable "legacy eth ENV" mode, which is not compatible with multi-chain. It is better to configure settings using the API, CLI, or GUI instead.
 
 - Default: _none_
 
@@ -663,7 +659,7 @@ NOTE: It is also required to set `ETH_CHAIN_ID` if you set ETH_URL.
 
 ### ETH_HTTP_URL
 
-Only has effect if `ETH_URL` set. Otherwise, it can be set in the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or GUI.
+Only has effect if `ETH_URL` set. Otherwise, it can be set in the API, CLI, or GUI.
 
 - Default: _none_
 
@@ -740,7 +736,7 @@ EVM_NODES=[{"name":"primary_0_1","evmChainId":"0","wsUrl":"ws://test1.invalid","
 
 ### ETH_SECONDARY_URLS
 
-Only has effect if `ETH_URL` set. Otherwise, it can be set in the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or GUI.
+Only has effect if `ETH_URL` set. Otherwise, it can be set in the API, CLI, or GUI.
 
 - Default: _none_
 
@@ -799,7 +795,7 @@ This might be useful on fast chains and if only recent chain events are relevant
 
 ### ETH_TX_REAPER_INTERVAL
 
-NOTE: This overrides the setting for _all_ chains, you might want to set this on a per-chain basis using the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or GUI instead
+NOTE: This overrides the setting for _all_ chains, you might want to set this on a per-chain basis using the API, CLI, or GUI instead
 
 - Default: `"1h"`
 
@@ -820,7 +816,7 @@ Setting to `0` disables the reaper.
 
 ### ETH_TX_RESEND_AFTER_THRESHOLD
 
-NOTE: This overrides the setting for _all_ chains, you might want to set this on a per-chain basis using the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or GUI instead.
+NOTE: This overrides the setting for _all_ chains, you might want to set this on a per-chain basis using the API, CLI, or GUI instead.
 
 - Default: _automatically set based on Chain ID, typically 1m_
 
@@ -972,7 +968,7 @@ Set to `0` to disable this check.
 
 These settings allow you to tune your node's gas limits and pricing. In most cases, leaving these values at their defaults should give good results.
 
-As of Chainlink node v1.1.0, it is recommended to use the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or GUI to configure gas controls because you might want to use different settings for different chains. Setting the environment variable typically overrides the setting for all chains.
+As of Chainlink node v1.1.0, it is recommended to use the API, CLI, or GUI to configure gas controls because you might want to use different settings for different chains. Setting the environment variable typically overrides the setting for all chains.
 
 ### Configuring your ETH node
 
@@ -1233,7 +1229,7 @@ Enables or disables sending transactions through forwarder contracts.
 
 These settings allow you to configure how your node calculates gas prices. In most cases, leaving these values at their defaults should give good results.
 
-As of Chainlink node v1.1.0, it is recommended to use the API, [CLI](/chainlink-nodes/v1/configuration/#cli-client), or GUI to configure gas controls because you might want to use different settings for different chains. Setting the environment variable typically overrides the setting for all chains.
+As of Chainlink node v1.1.0, it is recommended to use the API, CLI, or GUI to configure gas controls because you might want to use different settings for different chains. Setting the environment variable typically overrides the setting for all chains.
 
 Chainlink nodes decide what gas price to use using an `Estimator`. It ships with several simple and battle-hardened built-in estimators that should work well for almost all use-cases. Note that estimators will change their behaviour slightly depending on if you are in EIP-1559 mode or not.
 
@@ -1426,7 +1422,7 @@ OCR supports multiple networking stacks. `P2P_NETWORKING_STACK` chooses which st
 - `V1V2` - Runs both stacks simultaneously. For each link with another peer, V2 networking will be preferred. If V2 does not work, the link will automatically fall back to V1. If V2 starts working again later, it will automatically be prefered again. This is useful for migrating networks without downtime. Note that the two networking stacks _must not_ be configured to bind to the same IP/port.
 - `V2`
 
-All nodes in the OCR network should share the same networking stack.
+All nodes in the OCR network should share the same networking stack. The `V1` stack is deprecated and is being phased out. Do not use it for new deployments. Expect the default value of this variable to change to `V2` in the future.
 
 #### P2P_PEER_ID
 
@@ -1499,11 +1495,13 @@ If using the Networking Stack V2, you must unset the following [Networking Stack
 [`P2P_PEER_ID`](#p2p_peer_id) is used for both Networking Stack V1 and V2.
 :::
 
+The Networking Stack V2 uses TCP, any ports mentioned in this section refer to TCP ports.
+
 #### P2PV2_ANNOUNCE_ADDRESSES
 
 - Default: _none_
 
-`P2PV2_ANNOUNCE_ADDRESSES` contains the addresses the peer will advertise on the network in host:port form as accepted by net.Dial. The addresses should be reachable by peers of interest.
+`P2PV2_ANNOUNCE_ADDRESSES` contains the addresses the node will advertise for peer discovery in host:port form as accepted by the TCP version of Go's [`net.Dial`](https://pkg.go.dev/net#Dial). The addresses should be reachable by other nodes on the network. When attempting to connect to another node, a node will attempt to dial all of the other node's `P2PV2_ANNOUNCE_ADDRESSES` in round-robin fashion.
 Example: `P2PV2_ANNOUNCE_ADDRESSES=1.2.3.4:9999 [a52d:0:a88:1274::abcd]:1337`
 
 #### P2PV2_BOOTSTRAPPERS
@@ -1512,6 +1510,12 @@ Example: `P2PV2_ANNOUNCE_ADDRESSES=1.2.3.4:9999 [a52d:0:a88:1274::abcd]:1337`
 
 `P2PV2_BOOTSTRAPPERS` returns the default bootstrapper peers for libocr's v2 networking stack.
 Example: `P2PV2_BOOTSTRAPPERS=12D3KooWMHMRLQkgPbFSYHwD3NBuwtS1AmxhvKVUrcfyaGDASR4U@1.2.3.4:9999 12D3KooWLZ9uTC3MrvKfDpGju6RAQubiMDL7CuJcAgDRTYP7fh7R@[a52d:0:a88:1274::abcd]:1337 12D3KooWM55u5Swtpw9r8aFLQHEtw7HR4t44GdNs654ej5gRs2Dh@example.com:1234`
+
+Oracle nodes typically only know each other's PeerIDs, but not their hostnames, IP addresses, or ports.
+Bootstrappers are special nodes that help other nodes discover each other's `P2PV2_ANNOUNCE_ADDRESSES` so they can communicate.
+Nodes continuously attempt to connect to bootstrappers configured in `P2PV2_BOOTSTRAPPERS`.
+When a node wants to connect to another node (which it knows only by PeerID, but not by address), it discovers the other node's `P2PV2_ANNOUNCE_ADDRESSES` from communications received from its `P2PV2_BOOTSTRAPPERS` or other discovered nodes.
+To facilitate discovery, nodes will regularly broadcast signed announcements containing their PeerID and `P2PV2_ANNOUNCE_ADDRESSES`.
 
 #### P2PV2_LISTEN_ADDRESSES
 

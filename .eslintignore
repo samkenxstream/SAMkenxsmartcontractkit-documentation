@@ -4,6 +4,7 @@ dist
 node_modules
 .github
 .changeset
+src/features/abi/*.json
 src/features/redirects/redirects.json
 scripts/reference/chainsToBe.json
 src/scripts/reference/linkNameSymbol.json
@@ -23,5 +24,6 @@ public/samples
 package.json
 package-lock.json
 vercel.json
+tsconfig.json
 
 /src/pages/chainlink-functions/resources/example-source.js
