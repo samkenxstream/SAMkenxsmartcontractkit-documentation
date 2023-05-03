@@ -1,5 +1,5 @@
-require("@nomiclabs/hardhat-ethers")
-require("dotenv").config()
+require("@chainlink/env-enc").config()
+require("@nomicfoundation/hardhat-toolbox")
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -14,13 +14,13 @@ module.exports = {
       // }
     },
     localhost: {},
-    mumbai: {
-      url: process.env.MUMBAI_RPC_URL,
+    polygonMumbai: {
+      url: process.env.POLYGON_MUMBAI_RPC_URL,
       accounts: [process.env.PRIVATE_KEY],
       saveDeployments: true,
     },
-    sepolia: {
-      url: process.env.SEPOLIA_RPC_URL,
+    ethereumSepolia: {
+      url: process.env.ETHEREUM_SEPOLIA_RPC_URL,
       accounts: [process.env.PRIVATE_KEY],
       saveDeployments: true,
     },
@@ -29,6 +29,15 @@ module.exports = {
     compilers: [
       {
         version: "0.8.7",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 1_000,
+          },
+        },
+      },
+      {
+        version: "0.7.0",
         settings: {
           optimizer: {
             enabled: true,

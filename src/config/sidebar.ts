@@ -50,7 +50,7 @@ export const SIDEBAR = {
       section: "Resources",
       contents: [
         {
-          title: "Videos and Tutorials",
+          title: "Learning Resources",
           url: "getting-started/other-tutorials?parent=gettingStarted",
         },
         {
@@ -152,6 +152,16 @@ export const SIDEBAR = {
           ],
         },
         {
+          title: "Rate and Volatility Feeds",
+          url: "data-feeds/rates-feeds",
+          children: [
+            {
+              title: "Rate and Volatility Feed Addresses",
+              url: "data-feeds/rates-feeds/addresses",
+            },
+          ],
+        },
+        {
           title: "Selecting Quality Data Feeds",
           url: "data-feeds/selecting-data-feeds",
         },
@@ -247,7 +257,7 @@ export const SIDEBAR = {
       section: "Resources",
       contents: [
         {
-          title: "Videos and Tutorials",
+          title: "Learning Resources",
           url: "getting-started/other-tutorials?parent=dataFeeds",
         },
         {
@@ -331,10 +341,6 @@ export const SIDEBAR = {
             },
           ],
         },
-        {
-          title: "Automation Architecture",
-          url: "chainlink-automation/overview/",
-        },
       ],
     },
     {
@@ -343,6 +349,10 @@ export const SIDEBAR = {
         {
           title: "Automation Pricing",
           url: "chainlink-automation/automation-economics/",
+        },
+        {
+          title: "Automation Architecture",
+          url: "chainlink-automation/overview/",
         },
         {
           title: "Automation Release Notes",
@@ -379,7 +389,7 @@ export const SIDEBAR = {
       section: "Resources",
       contents: [
         {
-          title: "Videos and Tutorials",
+          title: "Learning Resources",
           url: "getting-started/other-tutorials?parent=automation",
         },
         {
@@ -585,6 +595,10 @@ export const SIDEBAR = {
           title: "Best Practices",
           url: "vrf/v2/best-practices",
         },
+        {
+          title: "Estimating Costs",
+          url: "vrf/v2/estimating-costs",
+        },
       ],
     },
     {
@@ -670,7 +684,7 @@ export const SIDEBAR = {
       section: "Resources",
       contents: [
         {
-          title: "Videos and Tutorials",
+          title: "Learning Resources",
           url: "getting-started/other-tutorials?parent=vrf",
         },
         {
@@ -793,7 +807,7 @@ export const SIDEBAR = {
       section: "Resources",
       contents: [
         {
-          title: "Videos and Tutorials",
+          title: "Learning Resources",
           url: "getting-started/other-tutorials?parent=anyApi",
         },
         {
@@ -963,134 +977,18 @@ export const SIDEBAR = {
           url: "chainlink-nodes/oracle-jobs/jobs",
           children: [
             {
-              title: "Cron",
-              url: "chainlink-nodes/oracle-jobs/job-types/cron",
-            },
-            {
-              title: "Direct Request",
-              url: "chainlink-nodes/oracle-jobs/job-types/direct_request",
-            },
-            {
-              title: "Flux Monitor",
-              url: "chainlink-nodes/oracle-jobs/job-types/flux_monitor",
-            },
-            {
-              title: "Keeper",
-              url: "chainlink-nodes/oracle-jobs/job-types/keeper",
-            },
-            {
-              title: "Off-chain Reporting",
-              url: "chainlink-nodes/oracle-jobs/job-types/offchain_reporting",
-            },
-            {
-              title: "Webhook",
-              url: "chainlink-nodes/oracle-jobs/job-types/webhook",
+              title: "Job Types",
+              url: "chainlink-nodes/oracle-jobs/all-jobs",
             },
           ],
         },
         {
-          url: "chainlink-nodes/oracle-jobs/task-types/tasks",
+          url: "chainlink-nodes/oracle-jobs/tasks",
           title: "Tasks",
           children: [
             {
-              title: "Job Pipelines",
-              url: "chainlink-nodes/oracle-jobs/task-types/pipelines",
-            },
-            {
-              title: "HTTP",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_http",
-            },
-            {
-              title: "Bridge",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_bridge",
-            },
-            {
-              title: "JSON Parse",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_jsonparse",
-            },
-            {
-              title: "CBOR Parse",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_cborparse",
-            },
-            {
-              title: "ETH ABI Decode",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_eth_abi_decode",
-            },
-            {
-              title: "ETH ABI Decode Log",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_eth_abi_decode_log",
-            },
-            {
-              title: "ETH ABI Encode",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_eth_abi_encode",
-            },
-            {
-              title: "ETH Call",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_eth_call",
-            },
-            {
-              title: "ETH Tx",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_eth_tx",
-            },
-            {
-              title: "Multiply",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_multiply",
-            },
-            {
-              title: "Divide",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_divide",
-            },
-            {
-              title: "Any",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_any",
-            },
-            {
-              title: "Mean",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_mean",
-            },
-            {
-              title: "Median",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_median",
-            },
-            {
-              title: "Mode",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_mode",
-            },
-            {
-              title: "Sum",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_sum",
-            },
-            {
-              title: "Less Than",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_lessthan",
-            },
-            {
-              title: "Length",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_length",
-            },
-            {
-              title: "Hex Decode",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_hexdecode",
-            },
-            {
-              title: "Hex Encode",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_hexencode",
-            },
-            {
-              title: "Base64 Decode",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_base64decode",
-            },
-            {
-              title: "Base64 Encode",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_base64encode",
-            },
-            {
-              title: "Uppercase",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_uppercase",
-            },
-            {
-              title: "Lowercase",
-              url: "chainlink-nodes/oracle-jobs/task-types/task_lowercase",
+              title: "Task Types",
+              url: "chainlink-nodes/oracle-jobs/all-tasks",
             },
           ],
         },

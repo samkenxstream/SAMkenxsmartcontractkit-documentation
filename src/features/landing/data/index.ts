@@ -24,6 +24,7 @@ export const evmProducts = [
       ["Price Feeds", "data-feeds/price-feeds/"],
       ["Proof of Reserve Feeds", "data-feeds/proof-of-reserve/"],
       ["NFT Floor Pricing Feeds", "data-feeds/nft-floor-price/"],
+      ["Rate and Volatility Feeds", "data-feeds/rates-feeds/"],
     ],
     chains: [
       ...baseChains,
@@ -31,7 +32,6 @@ export const evmProducts = [
       { id: "optimism", title: "Optimism" },
       { id: "gnosis-chain", title: "Gnosis Chain" },
       { id: "harmony", title: "Harmony" },
-      { id: "klaytn", title: "Klaytn" },
       { id: "metis", title: "Metis" },
       { id: "moonbeam", title: "Moonbeam" },
       { id: "moonriver", title: "Moonriver" },
@@ -90,7 +90,7 @@ export const evmProducts = [
       ["Security Considerations", "/vrf/v2/security/"],
       ["Best Practices", "/vrf/v2/best-practices/"],
     ],
-    chains: [...baseChains, { id: "klaytn", title: "Klaytn" }],
+    chains: [...baseChains],
     video: "https://www.youtube.com/watch?v=JqZWariqh5s&list=PLVP9aGDn-X0QHDyBRvbITizWrRoecR0D8&index=2",
   },
   {
@@ -110,7 +110,6 @@ export const evmProducts = [
       { id: "optimism", title: "Optimism" },
       { id: "gnosis-chain", title: "Gnosis Chain" },
       { id: "harmony", title: "Harmony" },
-      { id: "klaytn", title: "Klaytn" },
       { id: "metis", title: "Metis" },
       { id: "moonbeam", title: "Moonbeam" },
       { id: "moonriver", title: "Moonriver" },

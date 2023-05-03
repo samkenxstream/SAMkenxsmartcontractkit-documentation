@@ -52,10 +52,10 @@ To build a decentralized asset price, send a request to the DON to fetch the pri
    1. Under `Account permissions`, enable _Read and write_ for Gists. **Note**: Do not enable additional settings.
    1. Click on _Generate token_ and copy your fine-grained personal access token.
 
-1. Run `npx env-enc set-pw` to add an encrypted `GITHUB_API_TOKEN` and `COINMARKETCAP_API_KEY` to your `.env.enc` file.
+1. Run `npx env-enc set` to add an encrypted `GITHUB_API_TOKEN` and `COINMARKETCAP_API_KEY` to your `.env.enc` file.
 
    ```shell
-   npx env-enc set-pw
+   npx env-enc set
    ```
 
 ## Tutorial
@@ -126,7 +126,7 @@ npx hardhat functions-request --subid REPLACE_SUBSCRIPTION_ID --contract REPLACE
 Example:
 
 ```text
-$ npx hardhat functions-request --subid 443 --contract 0x4B4BA2Fd6b93aDF8d6b6002E10540E58394388Ea --network mumbai
+$ npx hardhat functions-request --subid 443 --contract 0x4B4BA2Fd6b93aDF8d6b6002E10540E58394388Ea --network polygonMumbai
 secp256k1 unavailable, reverting to browser version
 Estimating cost if the current gas price remains the same...
 
@@ -190,7 +190,7 @@ npx hardhat functions-read  --contract REPLACE_CONSUMER_CONTRACT_ADDRESS --netwo
 Example:
 
 ```text
-$ npx hardhat functions-read  --contract 0x4B4BA2Fd6b93aDF8d6b6002E10540E58394388Ea  --network mumbai
+$ npx hardhat functions-read  --contract 0x4B4BA2Fd6b93aDF8d6b6002E10540E58394388Ea  --network polygonMumbai
 secp256k1 unavailable, reverting to browser version
 Reading data from Functions client contract 0x4B4BA2Fd6b93aDF8d6b6002E10540E58394388Ea on network mumbai
 
